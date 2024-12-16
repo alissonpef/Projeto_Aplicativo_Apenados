@@ -1,220 +1,205 @@
-# Ronda Penal
-
-## 📝 Introdução
-
-Este projeto descreve o desenvolvimento de um **sistema de gerenciamento de apenados**, projetado para facilitar as operações dos policiais de Araranguá. O objetivo é centralizar a gestão e o monitoramento de informações relacionadas aos apenados em liberdade condicional. O sistema oferece aos policiais acesso fácil a dados atualizados, visualização de mapas com a localização dos apenados e registro de visitas de forma organizada.
-
-O aplicativo opera sem internet e sincroniza os dados com o servidor central ao retornar à base.
+Segue o **README** final do projeto **Ronda Penal**, formatado no mesmo estilo dos projetos anteriores (como “Sistema de Controle de Acesso a Salas” e “Smart Box”):
 
 ---
 
-## 👥 Integrantes do Projeto
+# **Ronda Penal**
+
+Este projeto descreve o desenvolvimento de um **sistema de gerenciamento de apenados**, projetado para facilitar as operações dos policiais em Araranguá. O objetivo é **centralizar** o monitoramento de apenados em liberdade condicional, fornecendo acesso fácil a dados atualizados, visualização de mapas e registro de visitas de maneira organizada.
+
+> O **Ronda Penal** funciona **sem internet em campo**, sincronizando todos os dados quando o policial retorna à base e se conecta ao **servidor central**.
+
+---
+
+## **Sumário**
+
+1. [Introdução](#introdução)  
+2. [Equipe Responsável](#equipe-responsável)  
+3. [Requisitos do Sistema](#requisitos-do-sistema)  
+4. [Estrutura do Repositório](#estrutura-do-repositório)  
+5. [Tecnologias Utilizadas](#tecnologias-utilizadas)  
+6. [Como Executar](#como-executar)  
+7. [Diagramas](#diagramas)  
+8. [Conclusão](#conclusão)
+
+---
+
+## **Introdução**
+
+O **Ronda Penal** foi idealizado para auxiliar os policiais no **gerenciamento de apenados** sob liberdade condicional. O sistema permite:
+
+- **Visualizar mapas** com localização dos apenados.  
+- **Registrar visitas** aos apenados e suas ocorrências.  
+- **Manter dados atualizados** mesmo sem conexão, com sincronização posterior.
+
+---
+
+## **Equipe Responsável**
 
 - **Alisson Pereira Ferreira**
 - **Andre Luis da Rosa de Lima**
 - **Bernardo Pandolfi Costa**
 - **Fernando Doqui Futila**
 
-**Universidade Federal de Santa Catarina (UFSC)**  
-**Campus Araranguá**
+**Universidade Federal de Santa Catarina (UFSC) – Campus Araranguá**
 
 ---
 
-## 🔑 Requisitos do Sistema
+## **Requisitos do Sistema**
 
-### Funcionais
+### **Requisitos Funcionais**
 
-- **RF_01:** Autenticação de policiais para acesso ao sistema.
-- **RF_02:** Cadastro e visualização de informações dos apenados.
-- **RF_03:** Sincronização de dados entre o aplicativo e o servidor no quartel.
-- **RF_04:** Visualização de mapas com a localização dos apenados.
-- **RF_05:** Exibição de perfil e grau de perigo do apenado.
-- **RF_06:** Registro de visitas aos apenados.
+1. **RF_01**: Autenticação de policiais para acesso ao sistema.  
+2. **RF_02**: Cadastro e visualização de informações dos apenados.  
+3. **RF_03**: Sincronização de dados entre o aplicativo (em campo) e o servidor (no quartel).  
+4. **RF_04**: Visualização de mapas com a localização dos apenados.  
+5. **RF_05**: Exibição de perfil e grau de periculosidade de cada apenado.  
+6. **RF_06**: Registro de visitas e histórico de ocorrências.
 
-### Não-Funcionais
+### **Requisitos Não-Funcionais**
 
-- **RNF_01:** Garantia de segurança dos dados com acesso restrito.
-- **RNF_02:** Interface intuitiva e responsiva.
-- **RNF_03:** Compatibilidade com dispositivos móveis e navegadores.
-- **RNF_04:** Escalabilidade para expansão futura.
-- **RNF_05:** Estabilidade e disponibilidade 24/7.
+1. **RNF_01**: Garantia de **segurança** dos dados e acesso restrito a usuários autorizados.  
+2. **RNF_02**: **Interface intuitiva** e compatível com dispositivos móveis e navegadores.  
+3. **RNF_03**: **Escalabilidade** para expansão futura e suporte a um grande número de registros.  
+4. **RNF_04**: **Alta disponibilidade** (24/7) e estabilidade do sistema.
 
-### Regras de Negócio
+### **Regras de Negócio**
 
-- **RN_01:** Sincronização automática de dados.
-- **RN_02:** Atualização de dados apenas na base.
-- **RN_03:** Acesso aos dados restrito a policiais autorizados e administradores.
-
----
-
-## 📂 Estrutura do Repositório
-
-- **/App_Mobile:** Código do aplicativo mobile para operações em campo.
-- **/Server:** Backend para autenticação, sincronização e gerenciamento de dados.
-- **/Database:** Scripts SQL para criação e população do banco de dados.
+1. **RN_01**: Sincronização automática de dados ao retornar ao quartel.  
+2. **RN_02**: Somente policiais autorizados e administradores podem atualizar os dados.  
+3. **RN_03**: As alterações realizadas no campo ficam armazenadas localmente até a sincronização.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## **Estrutura do Repositório**
 
-- **PostgreSQL**: Banco de dados relacional.
-- **Flask**: Framework para desenvolvimento do backend.
-- **React Native**: Criação do aplicativo mobile.
-- **MapLibre**: Biblioteca para visualização de mapas.
-- **Material UI**: Interface web intuitiva e responsiva.
+```bash
+/Projeto_Ronda_Penal
+├── .vscode            # Configurações do VSCode
+├── 2023               # Arquivos e recursos relacionados ao ano projeto no ano de 2-23
+├── db                 # Scripts de banco de dados
+├── frontend-web       # Código da aplicação web (frontend)
+├── login_stuff        # Implementações relacionadas ao sistema de login
+├── node_modules       # Dependências do Node.js
+├── server             # Código do servidor (backend)
+└── web                # Outros arquivos ou recursos do frontend
+
+```
 
 ---
 
-## 🛠️ Como Executar
+## **Tecnologias Utilizadas**
+
+- **PostgreSQL**: Banco de dados relacional para armazenamento de informações dos apenados.  
+- **Flask**: Framework Python para desenvolvimento do backend.  
+- **React Native**: Desenvolvimento do aplicativo mobile para operações em campo.  
+- **MapLibre**: Biblioteca de mapas para visualização das localizações dos apenados.  
+- **Material UI**: Criação de interface web responsiva e intuitiva.
+
+---
+
+## **Como Executar**
 
 ### 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/alissonpef/Projeto_Aplicativo_Apenados.git
+git clone https://github.com/alissonpef/Projeto_FullStack_Aplicativo_Apenados/tree/main
 ```
 
 ### 2. Configurar o Banco de Dados
 
-- Crie um banco de dados PostgreSQL chamado `ronda_penal`.
-- Execute o script de criação e população localizado em `Database/schema.sql`:
+1. Crie um banco de dados **PostgreSQL** chamado `ronda_penal`.  
+2. Execute o script de criação e população localizado em `Database/schema.sql`:
 
-```bash
-psql -U seu_usuario -d ronda_penal -f Database/schema.sql
-```
+   ```bash
+   psql -U seu_usuario -d ronda_penal -f Database/schema.sql
+   ```
 
 ### 3. Iniciar o Backend
 
-- Instale as dependências do servidor:
+1. Acesse a pasta `Server` e instale as dependências:
 
-```bash
-pip install -r Server/requirements.txt
-```
-
-- Inicie o servidor Flask:
-
-```bash
-python Server/app.py
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Inicie o servidor Flask:
+   ```bash
+   python app.py
+   ```
+3. O backend estará acessível em `http://localhost:5000`.
 
 ### 4. Configurar o App Mobile
 
-- Navegue até o diretório `App_Mobile`.
-- Instale as dependências do React Native:
-
-```bash
-npm install
-```
-
-- Inicie o aplicativo:
-
-```bash
-npm start
-```
+1. Acesse a pasta `App_Mobile`.
+2. Instale as dependências do React Native:
+   ```bash
+   npm install
+   ```
+3. Inicie o aplicativo:
+   ```bash
+   npm start
+   ```
+4. Use um emulador ou dispositivo físico para testar o aplicativo mobile.
 
 ### 5. Testar o Sistema
 
-- Abra o navegador e acesse o backend em `http://localhost:5000`.
-- Utilize um emulador ou dispositivo físico para testar o aplicativo mobile.
+- Acesse `http://localhost:5000` para verificar o backend.  
+- No aplicativo mobile, faça login e realize cadastros/visitas para simular o fluxo de trabalho offline.  
+- Ao retornar à base, verifique a **sincronização** dos dados com o servidor.
 
 ---
 
-## 📊 Diagramas
+## **Diagramas**
 
-### Diagrama de Caso de Uso
+### **Diagrama de Caso de Uso**
 
-Este diagrama descreve as funcionalidades do sistema e como os usuários interagem com ele. O servidor gerencia dados e autenticação de usuários, enquanto o aplicativo permite que os policiais visualizem informações e registrem visitas aos apenados.
+Descreve funcionalidades do sistema e como os usuários (policiais) interagem com as entidades do sistema (aplicativo, servidor, banco de dados).
 
-<center>
-  <img src='https://github.com/Butewbr/App-Apenados/assets/113950309/d172e92c-d8f2-4159-a2f7-1ee32698a0b0' style="width: 500px;">
-</center>
+![Diagrama de Caso de Uso](https://github.com/Butewbr/App-Apenados/assets/113950309/d172e92c-d8f2-4159-a2f7-1ee32698a0b0)
 
 *Figura 1: Diagrama de Caso de Uso.*
 
-### 📊 Protótipos de Telas
+### **Protótipos de Telas**
 
 1. **Login Servidor**  
-   <center>
-     <img src='https://github.com/Butewbr/App-Apenados/assets/113950309/40efcadf-cfbb-4b86-b303-1d2fb4209022' style="width: 500px;">
-   </center>
-   
-   *Figura 3: Tela de Login do Servidor.*
+   ![Tela de Login Servidor](https://github.com/Butewbr/App-Apenados/assets/113950309/40efcadf-cfbb-4b86-b303-1d2fb4209022)
 
 2. **Banco de Apenados**  
-   <center>
-     <img src='https://github.com/Butewbr/App-Apenados/assets/113950309/5873ed15-6b21-4526-b8be-9e712c7b65b9' style="width: 500px;">
-   </center>
-   
-   *Figura 4: Tela de Banco de Apenados.*
+   ![Banco de Apenados](https://github.com/Butewbr/App-Apenados/assets/113950309/5873ed15-6b21-4526-b8be-9e712c7b65b9)
 
 3. **Perfil do Apenado**  
-   <center>
-     <img src='https://github.com/Butewbr/App-Apenados/assets/113950309/398efcb7-e82e-433b-b963-8161e9384fbb' style="width: 500px;">
-   </center>
-   
-   *Figura 5: Tela de Perfil do Apenado.*
+   ![Perfil do Apenado](https://github.com/Butewbr/App-Apenados/assets/113950309/398efcb7-e82e-433b-b963-8161e9384fbb)
 
 4. **Cadastro de Apenado**  
-   <center>
-     <img src='https://github.com/Butewbr/App-Apenados/assets/113950309/a39f4f57-66b7-4a62-b781-baf9e2aa77bb' style="width: 500px;">
-   </center>
-   
-   *Figura 6: Tela de Cadastro de Apenado.*
+   ![Cadastro de Apenado](https://github.com/Butewbr/App-Apenados/assets/113950309/a39f4f57-66b7-4a62-b781-baf9e2aa77bb)
 
 5. **Cadastro de Policial**  
-   <center>
-     <img src='https://github.com/Butewbr/App-Apenados/assets/113950309/8a9ebec0-cc3e-4332-9776-62d1242eb506' style="width: 500px;">
-   </center>
-   
-   *Figura 7: Tela de Cadastro de Policial.*
+   ![Cadastro de Policial](https://github.com/Butewbr/App-Apenados/assets/113950309/8a9ebec0-cc3e-4332-9776-62d1242eb506)
 
 6. **Login no Aplicativo Mobile**  
-   <center>
-     <img src='https://github.com/Butewbr/App-Apenados/assets/113950309/5d0c8332-4f12-43e3-8f2e-f61ddc24dd8f' style="width: 250px;">
-   </center>
-   
-   *Figura 8: Tela de Login no Aplicativo Mobile.*
+   ![Login App Mobile](https://github.com/Butewbr/App-Apenados/assets/113950309/5d0c8332-4f12-43e3-8f2e-f61ddc24dd8f)
 
-### 📊 Diagrama de Classe
+### **Diagrama de Classe**
 
-Este diagrama detalha as classes e suas relações dentro do sistema, como a classe **Servidor**, **Policial**, **Apenado**, **Aplicativo**, **Mapa**, entre outras.
-
-<center>
-  <img src='https://github.com/Butewbr/App-Apenados/assets/113950309/e36871b9-1d28-4f75-8e1d-cad1b5226e9f' style="width: 500px;">
-</center>
+![Diagrama de Classe](https://github.com/Butewbr/App-Apenados/assets/113950309/e36871b9-1d28-4f75-8e1d-cad1b5226e9f)
 
 *Figura 9: Diagrama de Classe.*
 
----
+### **Modelo de Dados**
 
-## 📊 Modelo de Dados
-
-O modelo de dados descreve as entidades essenciais do sistema e suas interações, incluindo **Pessoa**, **Policial**, **Endereco**, **Crime**, **Apenado**, entre outras.
-
-<center>
-  <img src='https://github.com/Butewbr/App-Apenados/assets/113950309/19c3f30d-76c2-4519-8e9b-84429fc5b8d3' style="width: 500px;">
-</center>
+![Modelo de Dados](https://github.com/Butewbr/App-Apenados/assets/113950309/19c3f30d-76c2-4519-8e9b-84429fc5b8d3)
 
 *Figura 10: Modelo de Dados.*
 
----
+### **Requisitos de Hardware**
 
-## 📊 Requisitos de Hardware
+![Requisitos de Hardware](https://github.com/Butewbr/App-Apenados/assets/113950309/c3d7f868-0886-47c9-89be-4baded54f768)
 
-A arquitetura do sistema envolve dispositivos móveis conectados ao servidor central, responsável por gerenciar e sincronizar os dados. O diagrama de hardware abaixo ilustra essa interação.
-
-<center>
-  <img src='https://github.com/Butewbr/App-Apenados/assets/113950309/c3d7f868-0886-47c9-89be-4baded54f768' style="width: 500px;">
-</center>
-
-*Figura 11: Requisitos de Hardware.*
+*Figura 11: Diagrama de Hardware.*
 
 ---
 
----
+## **Conclusão**
 
-## 🌟 Conclusão
-
-O **Ronda Penal** é uma solução integrada e segura para o gerenciamento de apenados em liberdade condicional. Com funcionalidades de mapa, perfis de apenados e registro de visitas, o sistema otimiza o trabalho dos policiais, garantindo segurança e organização. Futuramente, serão adicionadas funcionalidades como notificações automáticas e relatórios detalhados.
+O **Ronda Penal** é uma **solução integrada** e **segura** para o gerenciamento de apenados em liberdade condicional. A funcionalidade offline permite que policiais atuem em campo mesmo sem conexão, sincronizando dados ao retornar à base. Isso **otimiza** o trabalho policial e **centraliza** informações sensíveis, garantindo **segurança** e **praticidade**. Futuras implementações podem incluir **notificações automáticas**, **relatórios detalhados** e maior integração com sistemas de segurança pública.
 
 ---
-
