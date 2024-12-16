@@ -1,56 +1,124 @@
-# Ronda Penal 
+# Ronda Penal
 
-## Introdução
+## 📝 Introdução
 
-Este relatório descreve o desenvolvimento de um sistema de gerenciamento de apenados, projetado para facilitar as operações dos policiais de Araranguá. O sistema tem como objetivo centralizar a gestão e o monitoramento de informações relacionadas aos apenados em liberdade condicional. A necessidade desse sistema surgiu devido à demanda por uma gestão mais eficiente e segura das informações dos apenados, permitindo aos policiais um acesso fácil a dados atualizados, a visualização de mapas com a localização dos apenados, e o registro de visitas de forma organizada. Para isso, será desenvolvido um aplicativo móvel, destinado ao uso durante o patrulhamento, onde os policiais poderão acessar as informações e registrar visitas. O sistema contará com autenticação, garantindo segurança e operará sem internet, com dados sendo atualizados quando a viatura retornar ao quartel.
+Este projeto descreve o desenvolvimento de um **sistema de gerenciamento de apenados**, projetado para facilitar as operações dos policiais de Araranguá. O objetivo é centralizar a gestão e o monitoramento de informações relacionadas aos apenados em liberdade condicional. O sistema oferece aos policiais acesso fácil a dados atualizados, visualização de mapas com a localização dos apenados e registro de visitas de forma organizada.
 
-### Integrantes do Projeto
+O aplicativo opera sem internet e sincroniza os dados com o servidor central ao retornar à base.
+
+---
+
+## 👥 Integrantes do Projeto
+
 - **Alisson Pereira Ferreira**
 - **Andre Luis da Rosa de Lima**
 - **Bernardo Pandolfi Costa**
 - **Fernando Doqui Futila**
 
+**Universidade Federal de Santa Catarina (UFSC)**  
+**Campus Araranguá**
+
 ---
 
-## Requisitos do Sistema
+## 🔑 Requisitos do Sistema
 
-### Requisitos Funcionais
+### Funcionais
 
-**RF_01** - O sistema deve permitir que os policiais se autentiquem com suas credenciais para acessar as informações.
+- **RF_01:** Autenticação de policiais para acesso ao sistema.
+- **RF_02:** Cadastro e visualização de informações dos apenados.
+- **RF_03:** Sincronização de dados entre o aplicativo e o servidor no quartel.
+- **RF_04:** Visualização de mapas com a localização dos apenados.
+- **RF_05:** Exibição de perfil e grau de perigo do apenado.
+- **RF_06:** Registro de visitas aos apenados.
 
-**RF_02** - O sistema deve permitir que os policiais cadastrem e visualizem as informações de apenados.
+### Não-Funcionais
 
-**RF_03** - O sistema deve permitir que o aplicativo sincronize dados com o servidor no quartel da polícia.
-
-**RF_04** - O aplicativo deve permitir que os policiais visualizem um mapa da região com a localização dos apenados.
-
-**RF_05** - O aplicativo deve permitir visualizar o perfil do apenado e seu grau de perigo.
-
-**RF_06** - O aplicativo deve permitir que os policiais registrem visitas aos apenados.
-
-### Requisitos Não-Funcionais
-
-**RNF_01** - O sistema deve garantir a segurança dos dados, permitindo acesso somente a policiais autenticados.
-
-**RNF_02** - A interface do sistema deve ser intuitiva e fácil de usar.
-
-**RNF_03** - O sistema deve ser compatível com diferentes dispositivos e navegadores.
-
-**RNF_04** - O sistema deve ser escalável para suportar o crescimento de dados no futuro.
-
-**RNF_05** - O sistema deve ser estável e disponível 24/7, já que os policiais podem precisar a qualquer momento.
+- **RNF_01:** Garantia de segurança dos dados com acesso restrito.
+- **RNF_02:** Interface intuitiva e responsiva.
+- **RNF_03:** Compatibilidade com dispositivos móveis e navegadores.
+- **RNF_04:** Escalabilidade para expansão futura.
+- **RNF_05:** Estabilidade e disponibilidade 24/7.
 
 ### Regras de Negócio
 
-**RN_01** - O sistema deve sincronizar dados automaticamente para manter as informações atualizadas.
-
-**RN_02** - A atualização de dados deve ocorrer apenas no quartel da polícia.
-
-**RN_03** - Apenas policiais autorizados e administradores podem acessar os dados dos apenados.
+- **RN_01:** Sincronização automática de dados.
+- **RN_02:** Atualização de dados apenas na base.
+- **RN_03:** Acesso aos dados restrito a policiais autorizados e administradores.
 
 ---
 
-## Diagramas
+## 📂 Estrutura do Repositório
+
+- **/App_Mobile:** Código do aplicativo mobile para operações em campo.
+- **/Server:** Backend para autenticação, sincronização e gerenciamento de dados.
+- **/Database:** Scripts SQL para criação e população do banco de dados.
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+- **PostgreSQL**: Banco de dados relacional.
+- **Flask**: Framework para desenvolvimento do backend.
+- **React Native**: Criação do aplicativo mobile.
+- **MapLibre**: Biblioteca para visualização de mapas.
+- **Material UI**: Interface web intuitiva e responsiva.
+
+---
+
+## 🛠️ Como Executar
+
+### 1. Clonar o Repositório
+
+```bash
+git clone https://github.com/alissonpef/Projeto_Aplicativo_Apenados.git
+```
+
+### 2. Configurar o Banco de Dados
+
+- Crie um banco de dados PostgreSQL chamado `ronda_penal`.
+- Execute o script de criação e população localizado em `Database/schema.sql`:
+
+```bash
+psql -U seu_usuario -d ronda_penal -f Database/schema.sql
+```
+
+### 3. Iniciar o Backend
+
+- Instale as dependências do servidor:
+
+```bash
+pip install -r Server/requirements.txt
+```
+
+- Inicie o servidor Flask:
+
+```bash
+python Server/app.py
+```
+
+### 4. Configurar o App Mobile
+
+- Navegue até o diretório `App_Mobile`.
+- Instale as dependências do React Native:
+
+```bash
+npm install
+```
+
+- Inicie o aplicativo:
+
+```bash
+npm start
+```
+
+### 5. Testar o Sistema
+
+- Abra o navegador e acesse o backend em `http://localhost:5000`.
+- Utilize um emulador ou dispositivo físico para testar o aplicativo mobile.
+
+---
+
+## 📊 Diagramas
 
 ### Diagrama de Caso de Uso
 
@@ -62,7 +130,7 @@ Este diagrama descreve as funcionalidades do sistema e como os usuários interag
 
 *Figura 1: Diagrama de Caso de Uso.*
 
-### Protótipos de Telas
+### 📊 Protótipos de Telas
 
 1. **Login Servidor**  
    <center>
@@ -106,7 +174,7 @@ Este diagrama descreve as funcionalidades do sistema e como os usuários interag
    
    *Figura 8: Tela de Login no Aplicativo Mobile.*
 
-### Diagrama de Classe
+### 📊 Diagrama de Classe
 
 Este diagrama detalha as classes e suas relações dentro do sistema, como a classe **Servidor**, **Policial**, **Apenado**, **Aplicativo**, **Mapa**, entre outras.
 
@@ -118,7 +186,7 @@ Este diagrama detalha as classes e suas relações dentro do sistema, como a cla
 
 ---
 
-## Modelo de Dados
+## 📊 Modelo de Dados
 
 O modelo de dados descreve as entidades essenciais do sistema e suas interações, incluindo **Pessoa**, **Policial**, **Endereco**, **Crime**, **Apenado**, entre outras.
 
@@ -130,7 +198,7 @@ O modelo de dados descreve as entidades essenciais do sistema e suas interaçõe
 
 ---
 
-## Requisitos de Hardware
+## 📊 Requisitos de Hardware
 
 A arquitetura do sistema envolve dispositivos móveis conectados ao servidor central, responsável por gerenciar e sincronizar os dados. O diagrama de hardware abaixo ilustra essa interação.
 
@@ -142,18 +210,11 @@ A arquitetura do sistema envolve dispositivos móveis conectados ao servidor cen
 
 ---
 
-## Tecnologias Utilizadas
+---
 
-O projeto utilizou uma combinação de tecnologias, incluindo **PostgreSQL**, **Flask**, **Node.js**, **ReactJS**, **Material UI**, **Styled Components**, **MapLibre**, e **GitHub**, para garantir uma solução eficiente e robusta.
+## 🌟 Conclusão
+
+O **Ronda Penal** é uma solução integrada e segura para o gerenciamento de apenados em liberdade condicional. Com funcionalidades de mapa, perfis de apenados e registro de visitas, o sistema otimiza o trabalho dos policiais, garantindo segurança e organização. Futuramente, serão adicionadas funcionalidades como notificações automáticas e relatórios detalhados.
 
 ---
 
-## Possíveis Erros
-
-Erros comuns incluem falhas de conexão ou problemas com versões desatualizadas das tecnologias. Recomenda-se garantir as versões adequadas e instalar extensões específicas, como o **React Native Tools** no Visual Studio Code.
-
----
-
-## Conclusão
-
-O desenvolvimento deste projeto foi uma experiência rica que nos proporcionou uma compreensão profunda das tecnologias envolvidas. A solução criada atende às necessidades dos policiais de Araranguá, com um sistema seguro e eficiente para o gerenciamento de apenados. Continuaremos a aprimorar o sistema, incluindo novas funcionalidades, como a listagem de PMs, notificações de visitas e melhorias na interface.
